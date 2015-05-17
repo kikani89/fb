@@ -7,7 +7,7 @@ ini_set('max_execution_time', 300);
 $fb_app_id = '1666410266911684';
 $fb_secret_id = '06090170170002699844c87d1b5b40cc';
 
-$fb_login_url = 'http://localhost/xampp/isuworkspace/fb/src/index.php';
+$fb_login_url = 'http://facebookchallenge-ifa.rhcloud.com/src/index.php';
 echo "hello";
 require_once ('Facebook/autoload.php');
 /**
