@@ -22,7 +22,7 @@
 /**
  * it set the all configuration for the facebook app
  */
-include_once ("../lib/include.php");
+include_once ($_SERVER['DOCUMENT_ROOT']."/lib/include.php");
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -42,6 +42,7 @@ try {
 		$_SESSION ['username'] = $userinfo ['name'];
 		
 		?>
+		
     <div class="container" style="margin-top: 5px; padding-top: 0px">
 		<div class="header " style="padding-bottom: 5px">
 			<nav>
