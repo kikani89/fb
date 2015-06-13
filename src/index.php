@@ -46,6 +46,8 @@ try {
     <div class="container" style="margin-top: 5px; padding-top: 0px">
 		<div class="header " style="padding-bottom: 5px">
 			<nav>
+			
+			
 			<ul class="nav nav-pills pull-right">
 				<li class="" role="presentation"><span><img class="img-circle"
 						src="https://graph.facebook.com/<?php echo $userinfo['id']; ?>/picture"
