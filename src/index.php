@@ -31,7 +31,7 @@ use Facebook\FacebookSDKException;
 use Facebook\FacebookRequestException;
 use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
-
+ echo "hello";
 try {
 	if (isset ( $session )) {
 		$_SESSION ['fb_login_session'] = $session;
