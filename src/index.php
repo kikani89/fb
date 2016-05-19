@@ -22,6 +22,7 @@
 /**
  * it set the all configuration for the facebook app
  */
+  echo "hello";
 include_once ("/lib/include.php");
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
@@ -31,7 +32,7 @@ use Facebook\FacebookSDKException;
 use Facebook\FacebookRequestException;
 use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
- echo "hello";
+
 try {
 	if (isset ( $session )) {
 		$_SESSION ['fb_login_session'] = $session;
