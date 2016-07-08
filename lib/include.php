@@ -2,7 +2,6 @@
 ini_set('max_execution_time', 300);
 /**
  * it set the application id and application secret id
- *
  */
 $fb_app_id = '1666410266911684';
 $fb_secret_id = '06090170170002699844c87d1b5b40cc';
