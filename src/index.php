@@ -100,9 +100,9 @@ try {
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="#" id="download-all-albums">Download All </a></li>
-						<li><a href="#">Move All</a></li>
+						<li><a href="#" id="move_all">Move All</a></li>
 						<li><a href="#" id="download-selected-albums">Download Selected</a></li>
-						<li><a href="#">Move Selected</a></li>
+						<li><a href="#" id="move-selected-albums">Move Selected</a></li>
 					</ul>
 				</div>
 				</nav>
@@ -145,17 +145,17 @@ try {
 								title="Download Album">
 								<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 							</button>
-							<button type="button" class="btn btn-default btn-sm">
+							<button type="button" class="move-single-album btn btn-default btn-sm" rel="<?php echo $album['id'] . ',' . $album['name']; ?>">
 								<span class="glyphicon glyphicon glyphicon-share"
 									aria-hidden="true">Move</span>
 							</button>
 						</div>
 					</div>
                       <?php
-					}
-					}
-					}
-					} else {
+		}
+		}
+		}
+		} else {
 		?>        
             <div class="container"
 						style="margin-top: 5px; padding-top: 0px">
@@ -184,7 +184,7 @@ try {
 <script type="text/javascript">
 	$(".progress-container").hide();
 	function showProgress() {
-		$( ".progress-bar" ).css( "width", "5%" ).attr( "aria-valuenow", 0);
+		$(".progress-bar").css("width", "5%").attr("aria-valuenow", 0);
 		var $progressBar = $('.progress-bar');
 		$(".progress-container").show();
 		setTimeout(function() {
@@ -221,12 +221,12 @@ try {
 					show : true
 
 				});
-				setTimeout(function(){
-				$(".progress-container").hide();
-				//$(".progress-Bar").css('width', '10%');	
-				
-				},2000);
-				
+				setTimeout(function() {
+					$(".progress-container").hide();
+					//$(".progress-Bar").css('width', '10%');
+
+				}, 2000);
+
 			}
 		});
 	}
@@ -234,6 +234,7 @@ try {
 
 	$("#download-all-albums").on("click", function() {
 		showProgress();
+		alert("download sent");
 		append_download_link("../lib/download_album.php?zip=1&all_albums=all_albums");
 
 	});
@@ -270,6 +271,32 @@ try {
 		showProgress();
 		var selected_albums = get_all_selected_albums();
 		append_download_link("../lib/download_album.php?zip=1&selected_albums=" + selected_albums);
-	}); 
+	});
+
+	function move_to_picasa(param1, param2) {
+
+			$.ajax({
+				url : "../lib/download_album.php?ajax=1&" + param1 + "=" + param2,
+				success : function(result) {
+				}
+			});
+	}
+	$(".move-single-album").on("click", function() {
+		var single_album = $(this).attr("rel");
+		  alert('I clicked move single');
+		move_to_picasa("single_album", single_album);
+	});
+
+	$("#move-selected-albums").on("click", function() {
+		var selected_albums = get_all_selected_albums();
+		  alert('I clicked selecteed');
+		move_to_picasa("selected_albums", selected_albums);
+	});
+
+	$("#move_all").on("click", function() {
+		  alert('I clicked All');
+		move_to_picasa("all_albums", "all_albums");
+	});
+
 </script>
 </html>
